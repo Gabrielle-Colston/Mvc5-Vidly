@@ -1,4 +1,5 @@
 ﻿@using System.Web.UI.HtmlControls
+@using Vidly.Models
 @model Vidly.Models.Customer
 @{
     ViewBag.Title = Model.Name;
@@ -6,3 +7,12 @@
 }
 
 <h1>@Model.Name</h1>
+    <ul>
+        <li>Membership Type: @Model.MembershipType.Name</li>
+        @{
+            if (Model.BirthDate != null)
+            {
+                <li>BirthDate: @Model.BirthDate.Value.ToShortDateString()</li>
+            }
+        }
+    </ul>
